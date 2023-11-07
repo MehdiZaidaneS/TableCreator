@@ -1,31 +1,31 @@
 const moongose = require("mongoose")
 
-const TableModel = new moongose.Schema({
-    tableName:{
+const RowModel = new moongose.Schema({
+    rowName:{
         type: String,
         required: true,
         trim: true,
         maxLength: 50
     },
-    tableHeading1:{
+    tableData1:{
         type: String,
         required: true,
         trim: true,
         maxLength: 50
     },
-    tableHeading2:{
+    tableData2:{
         type: String,
         required: true,
         trim: true,
         maxLength: 50
     },
-    tableHeading3:{
+    tableData3:{
         type: String,
         required: false,
         trim: true,
         maxLength: 50
     },
-    tableHeading4:{
+    tableData4:{
         type: String,
         required: false,
         trim: true,
@@ -38,4 +38,4 @@ const TableModel = new moongose.Schema({
 
 
 
-module.exports = moongose.model("Table", TableModel)
+module.exports = moongose.model("Row", RowModel)

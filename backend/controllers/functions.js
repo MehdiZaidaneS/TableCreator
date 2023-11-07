@@ -1,18 +1,19 @@
 const TableModel = require("../models/TableModel")
+const RowModel = require("../models/RowModel")
 
 
 exports.addTable = async(req, res) =>{
       
-    const {title, column1, columnData} = req.body;
-    
+    const {tableName, tableHeading1, tableHeading2, tableHeading3, tableHeading4} = req.body;
     const newTable = TableModel({
-        title,
-        column1,
-        columnData
+        tableName,
+        tableHeading1,
+        tableHeading2,
+        tableHeading3,
+        tableHeading4
     })
-
     try {
-        if(!title || !column1 || !columnData){
+        if(!tableName || !tableHeading1 || !tableHeading2){
             return res.status(400).json({message: "All field required"})
         }
         await newTable.save()
@@ -21,10 +22,34 @@ exports.addTable = async(req, res) =>{
         res.status(500).json({message: "Couldnt save the data!"})
         console.log("error")
     }
-
     console.log(newTable)
+}
+
+exports.addRow = async(req, res) =>{
+    const {rowName, tableData1, tableData2, tableData3, tableData4} = req.body;
+    const newRow = RowModel({
+        rowName,
+        tableData1,
+        tableData2,
+        tableData3,
+        tableData4
+    })
+    try {
+        if(!rowName || !tableData1 || !tableData2){
+            return res.status(400).json({message: "All field required"})
+        }
+        await newRow.save()
+        res.status(200).json({message: "Data saved in database!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt save the data!"})
+        console.log("error")
+    }
+    console.log(newRow)
 
 }
+
+
+
 
 exports.getTables = async(req, res) =>{
       
@@ -32,7 +57,19 @@ exports.getTables = async(req, res) =>{
         const tables = await TableModel.find()
         res.status(200).json(tables)
     } catch (error) {
-        res.status(500).json({message: "Couldnt save the data!"})
+        res.status(500).json({message: "Couldnt get the data!"})
+    }
+
+}
+
+
+exports.getRows = async(req, res) =>{
+      
+    try {
+        const rows = await RowModel.find()
+        res.status(200).json(rows)
+    } catch (error) {
+        res.status(500).json({message: "Couldnt get the data!"})
     }
 
 }
