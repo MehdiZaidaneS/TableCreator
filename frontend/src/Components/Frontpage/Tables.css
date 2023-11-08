@@ -1,0 +1,68 @@
+.table{
+    color: white;
+    text-align: center;
+    
+}
+
+.table h1{
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    color: rgb(167, 167, 167);
+    text-decoration:underline;
+}
+
+.table table{
+    margin: 0 auto;
+    justify-content: center;
+    border-collapse: collapse;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.table table td{
+   background-color: rgb(37, 37, 37); 
+   padding: 5px;
+   font-size: 17px;
+   color: gray;
+}
+
+th{
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgb(49, 49, 49);
+    color: rgb(4, 143, 39);
+    
+}
+
+
+.deleteTable{
+    background-color: rgb(49, 49, 49);
+    color: rgb(4, 143, 39);
+    border: none;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.deleteTable:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.tables{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.deleteRow{
+    background:none;
+    border: none;
+    font-size: 17px;
+    color: gray;
+    text-decoration: underline;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.deleteRow:hover{
+    cursor: pointer;
+}

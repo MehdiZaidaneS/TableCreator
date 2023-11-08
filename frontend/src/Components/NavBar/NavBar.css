@@ -19,3 +19,7 @@ a:hover{
   text-decoration: underline white;
 }
 
+a:focus{
+  text-decoration: underline white;
+}
+

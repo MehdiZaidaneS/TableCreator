@@ -73,3 +73,33 @@ exports.getRows = async(req, res) =>{
     }
 
 }
+
+
+exports.deleteTable = async(req, res) =>{
+
+    const {id} = req.params;
+
+    TableModel.findByIdAndDelete(id)
+    .then((table)=>{
+         res.status(200).json({message: "Table Deleted"})
+    })
+    .catch((error)=>{
+        res.status(500).json({message: "Couldnt Deleted"})
+    })
+
+}
+
+
+exports.deleteRow = async(req, res) =>{
+    const {id} = req.params;
+
+    RowModel.findByIdAndDelete(id)
+    .then((row)=>{
+         res.status(200).json({message: "Row Deleted"})
+    })
+    .catch((error)=>{
+        res.status(500).json({message: "Couldnt Deleted"})
+    })
+
+    
+}

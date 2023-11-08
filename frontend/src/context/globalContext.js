@@ -48,50 +48,17 @@ const getTables = async() =>{
       console.log(response) 
    }
 
+   const deleteTable = async(id) =>{
+      const response = await axios.delete(`${PORT_URL}delete-table/${id}`)
+         getTables()
+         console.log(response)
+   }
 
-  
-  
-//    const handleInput = name => e => {
-//        setInputState({...inputState, [name]: e.target.value})
-//        setError("")
-//    }
-
-//    const handleInputRow = name => e => {
-//      setInputStateRow({...inputStateRow, [name]: e.target.value})
-//      setError("")
-//  }
-
-
-//    const handleSubmit = e => {
-//     e.preventDefault()
-//      addTable(inputState);
-//      getTables()
-//      getRows()
-//      setInputState({
-//        tableName: "",
-//        tableHeading1: "",
-//        tableHeading2: "",
-//        tableHeading3: "",
-//       tableHeading4: ""
-//      })
-//    }
-
-
-//    const handleSubmitRow = e => {
-//      e.preventDefault()
-//      addRow(inputStateRow);
-//      getTables()
-//      getRows()
-//      setInputState({
-//        rowName: "",
-//        tableData1: "",
-//        tableData2: "",
-//        tableData3: "",
-//        tableData4: ""   
-// })
-//    }
-
-
+   const deleteRow = async(id) =>{
+      const response = await axios.delete(`${PORT_URL}delete-row/${id}`)
+         getRows()
+         console.log(response)
+   }
 
     return(
         <GlobalContext.Provider value={{
@@ -104,7 +71,9 @@ const getTables = async() =>{
             getTables,
             getRows,
             addTable,
-            addRow
+            addRow,
+            deleteTable,
+            deleteRow
         }}>
              {children}
         </GlobalContext.Provider>    
