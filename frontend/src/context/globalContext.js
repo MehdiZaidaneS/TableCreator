@@ -15,7 +15,7 @@ export const GlobalProvider = ({children}) =>{
 
    const [error, setError] = useState(null)
    const [tables, setTables] = useState([])
-   const [rows, setRows] = useState([])
+   let [rows, setRows] = useState([])
 
 
 
@@ -60,6 +60,17 @@ const getTables = async() =>{
          console.log(response)
    }
 
+   const sortRow = () =>{
+      rows.sort((a,b) => {
+        if(a.tableData1 < b.tableData1) { return -1; }
+        if(a.tableData1 > b.tableData1) { return 1; }
+        return 0;
+      })
+
+      console.log(rows)
+
+    }
+
     return(
         <GlobalContext.Provider value={{
             error,
@@ -73,7 +84,8 @@ const getTables = async() =>{
             addTable,
             addRow,
             deleteTable,
-            deleteRow
+            deleteRow,
+            sortRow
         }}>
              {children}
         </GlobalContext.Provider>    

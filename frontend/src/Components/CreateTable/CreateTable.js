@@ -39,9 +39,9 @@ const CreateTable = () => {
         <div className='container'>
             <h1>Create table</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Set table name..."   onChange={handleInput("tableName")}></input>
-                <input type="text" placeholder="Table heading 1..."  onChange={handleInput("tableHeading1")}></input>
-                <input type="text" placeholder="Table heading 2..."  onChange={handleInput("tableHeading2")}></input>
+                <input type="text" placeholder="Set table name...*"   onChange={handleInput("tableName")}></input>
+                <input type="text" placeholder="Table heading 1...*"  onChange={handleInput("tableHeading1")}></input>
+                <input type="text" placeholder="Table heading 2...*"  onChange={handleInput("tableHeading2")}></input>
                 <input type="text" placeholder="Table heading 3..."  onChange={handleInput("tableHeading3")}></input>
                 <input type="text" placeholder="Table heading 4..."  onChange={handleInput("tableHeading4")}></input>
             <button>Submit</button>

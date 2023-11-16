@@ -2,6 +2,8 @@ const TableModel = require("../models/TableModel")
 const RowModel = require("../models/RowModel")
 
 
+
+
 exports.addTable = async(req, res) =>{
       
     const {tableName, tableHeading1, tableHeading2, tableHeading3, tableHeading4} = req.body;
@@ -22,7 +24,10 @@ exports.addTable = async(req, res) =>{
         res.status(500).json({message: "Couldnt save the data!"})
         console.log("error")
     }
+    TableModel.db.createCollection(tableName,{capped : true, size : 9232768})
     console.log(newTable)
+
+    console.log("Collection created")
 }
 
 exports.addRow = async(req, res) =>{
@@ -34,6 +39,8 @@ exports.addRow = async(req, res) =>{
         tableData3,
         tableData4
     })
+
+    
     try {
         if(!rowName || !tableData1 || !tableData2){
             return res.status(400).json({message: "All field required"})
@@ -45,6 +52,14 @@ exports.addRow = async(req, res) =>{
         console.log("error")
     }
     console.log(newRow)
+    
+    // var db = TableModel;
+    
+
+    // db.compadre.insert( {tableName: "hwhhe", tableHeading1: "124124", tableHeading2: "124124" } )
+
+    // console.log("Collection saved in" + rowName)
+
 
 }
 

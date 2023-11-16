@@ -32,10 +32,12 @@ const RowModel = new moongose.Schema({
         maxLength: 50
     }
 
-}, {timestamps: true})
+},{timestamps: true})
 
 
 
 
 
-module.exports = moongose.model("Row", RowModel)
+
+
+module.exports = moongose.model("Row",RowModel)
