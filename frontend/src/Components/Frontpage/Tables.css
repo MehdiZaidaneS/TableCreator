@@ -1,7 +1,15 @@
 .table{
     color: white;
     text-align: center;
-    
+    cursor: move;
+}
+
+
+
+
+
+.hideTable{
+   color: red;
 }
 
 .table h1{
