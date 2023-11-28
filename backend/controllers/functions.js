@@ -16,17 +16,16 @@ exports.addTable = async(req, res) =>{
     })
     try {
         if(!tableName || !tableHeading1 || !tableHeading2){
-            return res.status(400).json({message: "All field required"})
+            return res.status(400).json({message: "All field required!"})
         }
         await newTable.save()
+        // RowModel.db.createCollection(tableName,{capped : true, size : 9232768})
         res.status(200).json({message: "Data saved in database!"})
     } catch (error) {
         res.status(500).json({message: "Couldnt save the data!"})
         console.log("error")
     }
-    RowModel.db.createCollection(tableName,{capped : true, size : 9232768})
     console.log(newTable)
-
     console.log("Collection created")
 }
 
@@ -43,9 +42,20 @@ exports.addRow = async(req, res) =>{
     
      try {
          if(!rowName || !tableData1 || !tableData2){
-             return res.status(400).json({message: "All field required"})
+             return res.status(400).json({message: "All field required!"})
          }
          await newRow.save()
+        //  const nameOfCollection = TableModel.db.collection(rowName);
+    
+        //  nameOfCollection.insertOne(
+        //      {
+        //          rowName,
+        //          tableData1,
+        //          tableData2,
+        //          tableData3,
+        //          tableData4
+        //      }
+        //    )
          res.status(200).json({message: "Data saved in database!"})
      } catch (error) {
          res.status(500).json({message: "Couldnt save the data!"})
@@ -53,17 +63,7 @@ exports.addRow = async(req, res) =>{
      }
      console.log(newRow)
     
-    const nameOfCollection = TableModel.db.collection(rowName);
-    
-    nameOfCollection.insertOne(
-        {
-            rowName,
-            tableData1,
-            tableData2,
-            tableData3,
-            tableData4
-        }
-      )
+   
 }
 
 

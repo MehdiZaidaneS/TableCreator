@@ -33,7 +33,7 @@ const getTables = async() =>{
    const addTable = async(table) =>{
      const response = await axios.post(`${PORT_URL}add-table`, table)
          .catch((err) =>{
-            setError(err)
+            setError(err.response.data.message)
          })
       getTables() 
       console.log(response) 
@@ -42,7 +42,7 @@ const getTables = async() =>{
    const addRow = async(row) =>{
      const response = await axios.post(`${PORT_URL}add-row`, row)
          .catch((err) =>{
-            setError(err)
+            setError(err.response.data.message)
          })
      getRows() 
       console.log(response) 
