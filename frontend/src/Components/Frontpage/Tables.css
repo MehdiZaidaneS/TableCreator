@@ -1,7 +1,12 @@
 .table{
+   
     color: white;
     text-align: center;
     cursor: move;
+}
+
+.hideTable{
+    background-color: aqua;
 }
 
 

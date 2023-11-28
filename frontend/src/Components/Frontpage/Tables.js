@@ -33,8 +33,8 @@ const Tables = () => {
        
       console.log(dragItem)
       //reset the position ref
-      dragItem.current = null;
-      dragOverItem.current= null
+      // dragItem.current = null;
+      // dragOverItem.current= null
 
      //update the actual array
      setTables(_tables)
@@ -63,15 +63,11 @@ const Tables = () => {
 
 
 
-  
-  
-
-
 
     
 
 
-   
+  // dragOverItem.current===index ? "hideTable" : "table"
 
 
     return (
@@ -81,8 +77,9 @@ const Tables = () => {
             tables.map((table, index) =>{
               
               return(
-                <div key={table._id} className={dragItem.current!==index ? "table" : "hideTable"} 
+                <div key={table._id} className={"table"} 
                 draggable
+                
                 onDragStart={(e)=> dragItem.current=index}
                 onDragEnter={(e)=> dragOverItem.current=index}
                 onDragEnd={handleSort}
@@ -91,7 +88,7 @@ const Tables = () => {
                   <table>
                     <tbody>
                     <tr>
-                       <th>{table.tableHeading1}</th>
+                       <th >{table.tableHeading1}</th>
                        <th>{table.tableHeading2}</th>
                        {table.tableHeading3 != null ? <th>{table.tableHeading3}</th> : null}
                        {table.tableHeading4 != null ? <th>{table.tableHeading4}</th> : null}
