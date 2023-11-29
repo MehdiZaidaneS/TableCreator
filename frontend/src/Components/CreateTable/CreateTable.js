@@ -7,12 +7,15 @@ const CreateTable = () => {
 const {addTable, error, setError, tables} = useGlobalContext()
 
 
+
+
+
  const [inputState, setInputState] = useState({
     tableName: "",
     tableHeading1: "",
     tableHeading2: "",
-    tableHeading3: null,
-    tableHeading4: null   
+    tableHeading3: "",
+    tableHeading4: ""   
 })
 
 
@@ -49,7 +52,7 @@ const {tableName, tableHeading1 , tableHeading2, tableHeading3, tableHeading4 } 
                    tableHeading1: "",
                    tableHeading2: "",
                    tableHeading3: "",
-                    tableHeading4: ""
+                    tableHeading4:""
            })
            setDone("Table created successfully!")
            setSameNameErr("")
@@ -73,12 +76,20 @@ const {tableName, tableHeading1 , tableHeading2, tableHeading3, tableHeading4 } 
               <p>{sameNameErr}</p>
             }
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Set table name...*" value={tableName} name={"tableName"}  onChange={handleInput("tableName")}></input>
-                <input type="text" placeholder="Table heading 1...*" value={tableHeading1} name={"tableHeading1"} onChange={handleInput("tableHeading1")}></input>
-                <input type="text" placeholder="Table heading 2...*" value={tableHeading2} name={"tableHeading2"} onChange={handleInput("tableHeading2")}></input>
-                <input type="text" placeholder="Table heading 3..." value={tableHeading3} name={"tableHeading3"} onChange={handleInput("tableHeading3")}></input>
-                <input type="text" placeholder="Table heading 4..." value={tableHeading4} name={"tableHeading4"}  onChange={handleInput("tableHeading4")}></input>
-            <button>Submit</button>
+              <div>
+                <input type="text" placeholder="*Set table name..." value={tableName} name={"tableName"}  onChange={handleInput("tableName")}></input>
+              </div>
+              <div>
+              <input type="text" placeholder="*Table heading 1..." value={tableHeading1} name={"tableHeading1"} onChange={handleInput("tableHeading1")}></input>
+                <input type="text" placeholder="*Table heading 2..." value={tableHeading2} name={"tableHeading2"} onChange={handleInput("tableHeading2")}></input>
+              </div>
+              <div>
+              <input type="text" placeholder="Table heading 3..." value={tableHeading3} name={"tableHeading3"} onChange={handleInput("tableHeading3")}></input>
+              <input type="text" placeholder="Table heading 4..." value={tableHeading4} name={"tableHeading4"}  onChange={handleInput("tableHeading4")}></input>
+              
+              </div>
+              <button>Submit</button>
+            
           </form>
         </div>
     );

@@ -1,12 +1,24 @@
-.container{
-  background-color: rgb(24, 24, 24);
+ .container{
+  /* background-color: rgb(24, 24, 24); */
+  background-color: rgb(14, 24, 11);
   padding: 25px 40px 25px 40px;
   box-shadow: 0px 0px 20px rgba(1, 141, 43, 0.938);
+  width: fit-content;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); 
+  border-radius: 1%;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
   border-radius: 3%;
+}
+
+
+.container h1{
+    /* color: gray; */
+    color: rgb(255, 255, 255);
 }
 
 .container p{
@@ -15,19 +27,39 @@
     font-size: 18.5px;
 }
 
-.container h1{
+.container form{
+    margin: 0 auto;
     text-align: center;
-    color: gray;
+    justify-content: center;
+    width: fit-content;
 }
 
-.container form{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 320px;
-    
-    
+.container form div{
+   display: flex;
 }
+
+.container form input{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%;
+    font-size: 17px;
+    padding: 10px;
+    margin: 2px;
+    background: none;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(128, 128, 128, 0.514);
+    background-color: rgba(53, 53, 53, 0.212);
+}
+
+.container form input::placeholder{
+    color: rgba(216, 216, 216, 0.322);
+}
+
+
+
+
+
+
+
 
 .container form button{
     margin: 0 auto;
@@ -36,21 +68,16 @@
     width: fit-content;
     background: none;
     font-size: 20px;
-    border: 1px solid gray;
-    color: gray;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     padding: 7px;
 }
 
 .container form button:hover{
     cursor: pointer;
-    color: rgb(10, 88, 0)
+    color: rgb(255, 255, 255);
+    
+        border: 1px solid black;
 }
 
-
-.container form input{
-    padding: 10px;
-    margin: 2px;
-    background: none;
-    color: white;
-    border: 1px solid rgb(48, 48, 48);
-}
+ 

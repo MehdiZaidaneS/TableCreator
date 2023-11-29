@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./AddRow.css"
 import { useGlobalContext } from '../../context/globalContext';
 
 const AddRow = () => {
 
-    const {addRow, error, setError, tables} = useGlobalContext()
+    const {addRow, error, setError, tables, getTables} = useGlobalContext()
 
    
-   
+     useEffect(()=>{
+         getTables()
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+     },[])
+
     const [done, setDone] = useState("")
    
     const [inputStateRow, setInputStateRow] = useState({
        rowName: "",
        tableData1: "",
        tableData2: "",
-       tableData3: null,
-       tableData4: null
+       tableData3: "",
+       tableData4: ""
    })
 
     
@@ -35,8 +39,8 @@ const {rowName, tableData1 , tableData2, tableData3, tableData4 } = inputStateRo
             rowName: "",
             tableData1: "",
             tableData2: "",
-            tableData3: null,
-            tableData4: null   
+            tableData3: "",
+            tableData4: ""   
         })
         setDone("Row added successfully!")
     }
@@ -56,7 +60,7 @@ const {rowName, tableData1 , tableData2, tableData3, tableData4 } = inputStateRo
                     {
                         tables.map(table =>{
                             return(
-                                <option value={table.tableName}>{table.tableName}</option>
+                                <option key={table._id} value={table.tableName}>{table.tableName}</option>
                             )
                         })
                     }
@@ -66,11 +70,11 @@ const {rowName, tableData1 , tableData2, tableData3, tableData4 } = inputStateRo
                 tables.map(table =>{
                     if(rowName === table.tableName){
                         return(
-                            <div>
+                            <div key={table._id}>
                               <input type="text" placeholder={table.tableHeading1 ? table.tableHeading1 : "tableData1"} value={tableData1} name={"tableData1"}  onChange={handleInputRow("tableData1")}></input>
                               <input type="text" placeholder={table.tableHeading2 ? table.tableHeading2 : "tableData2"} value={tableData2} name={"tableData2"} onChange={handleInputRow("tableData2")}></input>
-                              {table.tableHeading3 != null ? <input type="text" placeholder={table.tableHeading3 ? table.tableHeading3 : "tableData3"} value={tableData3} name={"tableData3"}onChange={handleInputRow("tableData3")}></input> : null}
-                              {table.tableHeading4 != null ? <input type="text" placeholder={table.tableHeading4 ? table.tableHeading4 : "tableData4"} value={tableData4} name={"tableData4"}onChange={handleInputRow("tableData4")}></input> : null} 
+                              {table.tableHeading3 !== "" ? <input required type="text" placeholder={table.tableHeading3 ? table.tableHeading3 : "tableData3"} value={tableData3} name={"tableData3"}onChange={handleInputRow("tableData3")}></input> : null}
+                              {table.tableHeading4 !== "" ? <input required type="text" placeholder={table.tableHeading4 ? table.tableHeading4 : "tableData4"} value={tableData4} name={"tableData4"}onChange={handleInputRow("tableData4")}></input> : null} 
                             </div>
                         )
                     }else{

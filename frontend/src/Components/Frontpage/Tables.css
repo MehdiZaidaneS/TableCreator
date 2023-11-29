@@ -3,6 +3,10 @@
     color: white;
     text-align: center;
     cursor: move;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+ 
 }
 
 .hideTable{
@@ -64,7 +68,12 @@ th{
 
 .tables{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(1, 1fr);
+    
+
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
 }
 
 .deleteRow{
@@ -79,3 +88,15 @@ th{
 .deleteRow:hover{
     cursor: pointer;
 }
+
+
+@media (min-width: 1200px) {
+    .tables { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1830px) {
+    .tables { grid-template-columns: repeat(3, 1fr); }
+  }
+  
+
+

@@ -79,7 +79,6 @@ const Tables = () => {
               return(
                 <div key={table._id} className={"table"} 
                 draggable
-                
                 onDragStart={(e)=> dragItem.current=index}
                 onDragEnter={(e)=> dragOverItem.current=index}
                 onDragEnd={handleSort}
@@ -90,8 +89,8 @@ const Tables = () => {
                     <tr>
                        <th >{table.tableHeading1}</th>
                        <th>{table.tableHeading2}</th>
-                       {table.tableHeading3 != null ? <th>{table.tableHeading3}</th> : null}
-                       {table.tableHeading4 != null ? <th>{table.tableHeading4}</th> : null}
+                       {table.tableHeading3 !== "" ? <th>{table.tableHeading3}</th> : null}
+                       {table.tableHeading4 !== "" ? <th>{table.tableHeading4}</th> : null}
                        <th><button type="button" className="deleteTable" onClick={() => deleteTable(table._id)}>Borrar</button></th>
                      </tr>
                       {
@@ -101,8 +100,8 @@ const Tables = () => {
                               <tr key={row._id}>
                                 <td>{row.tableData1}</td>
                                 <td>{row.tableData2}</td>
-                                {row.tableData3 != null ? <td>{row.tableData3}</td> : null}
-                                {row.tableData4 != null ? <td>{row.tableData4}</td> : null}
+                                {row.tableData3 !== "" ? <td>{row.tableData3}</td> : null}
+                                {row.tableData4 !== "" ? <td>{row.tableData4}</td> : null}
                                 <td><button onClick={()=> deleteRow(row._id)} className='deleteRow'>Delete</button></td>
                               </tr>  
                               )
