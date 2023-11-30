@@ -1,5 +1,8 @@
 import React, { useEffect}from 'react';
+
 import { useGlobalContext } from '../../context/globalContext';
+
+
 import "./Tables.css"
 
 const Tables = () => {
@@ -92,6 +95,7 @@ const Tables = () => {
                        {table.tableHeading3 !== "" ? <th>{table.tableHeading3}</th> : null}
                        {table.tableHeading4 !== "" ? <th>{table.tableHeading4}</th> : null}
                        <th><button type="button" className="deleteTable" onClick={() => deleteTable(table._id)}>Borrar</button></th>
+                       
                      </tr>
                       {
                         rows.map((row) =>{ 

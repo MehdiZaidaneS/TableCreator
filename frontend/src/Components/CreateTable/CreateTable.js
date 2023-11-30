@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./CreateTable.css"
+
 import { useGlobalContext } from '../../context/globalContext';
 
 const CreateTable = () => {
@@ -77,11 +78,11 @@ const {tableName, tableHeading1 , tableHeading2, tableHeading3, tableHeading4 } 
             }
             <form onSubmit={handleSubmit}>
               <div>
-                <input type="text" placeholder="*Set table name..." value={tableName} name={"tableName"}  onChange={handleInput("tableName")}></input>
+                <input type="text" placeholder="Set table name...*" value={tableName} name={"tableName"}  onChange={handleInput("tableName")}></input>
               </div>
               <div>
-              <input type="text" placeholder="*Table heading 1..." value={tableHeading1} name={"tableHeading1"} onChange={handleInput("tableHeading1")}></input>
-                <input type="text" placeholder="*Table heading 2..." value={tableHeading2} name={"tableHeading2"} onChange={handleInput("tableHeading2")}></input>
+              <input type="text" placeholder="Table heading 1...*" value={tableHeading1} name={"tableHeading1"} onChange={handleInput("tableHeading1")}></input>
+                <input type="text" placeholder="Table heading 2...*" value={tableHeading2} name={"tableHeading2"} onChange={handleInput("tableHeading2")}></input>
               </div>
               <div>
               <input type="text" placeholder="Table heading 3..." value={tableHeading3} name={"tableHeading3"} onChange={handleInput("tableHeading3")}></input>
@@ -89,6 +90,7 @@ const {tableName, tableHeading1 , tableHeading2, tableHeading3, tableHeading4 } 
               
               </div>
               <button>Submit</button>
+              
             
           </form>
         </div>

@@ -1,3 +1,20 @@
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs div{
+    display: inline;
+}
+
+form select{
+    background-color: white;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
 /* .container{
     background-color: rgb(24, 24, 24);
     padding: 25px 40px 25px 40px;
