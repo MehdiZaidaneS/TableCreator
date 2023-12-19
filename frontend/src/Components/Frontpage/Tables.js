@@ -1,4 +1,4 @@
-import React, { useEffect}from 'react';
+import React, { useEffect, useState}from 'react';
 
 import { useGlobalContext } from '../../context/globalContext';
 
@@ -7,7 +7,7 @@ import "./Tables.css"
 
 const Tables = () => {
 
-    const {tables, setTables, rows, getRows, getTables, deleteTable, deleteRow} = useGlobalContext()
+    const {tables, setTables, rows, getRows, getTables, deleteTable, deleteRow, updateRow} = useGlobalContext()
 
     
     useEffect(()=>{
@@ -18,6 +18,8 @@ const Tables = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
    
+
+  
 
     const dragItem=React.useRef(null);
     const dragOverItem= React.useRef(null)
@@ -46,31 +48,58 @@ const Tables = () => {
     }
 
 
+    const [updateHeading, setUpdateHeading] = useState({
+      title: "",
+      row: "",
+      body: ""
+    })
 
-  //   const [sort, setSort] = useState(false)
-  // if(sort===true)
-  // { 
-  //   rows.map((row)=>{
-  //     if(row.rowName=== "Supervivientes"){
-  //       rows.sort((a,b) => {
-  //         if(a.tableData1 < b.tableData1) { return -1; }
-  //         if(a.tableData1 > b.tableData1) { return 1; }
-  //       return 0;
-  //      })
-  //     }
-  //   })
-  //    setSort(false)
-  //    console.log(rows)
-  // }
+     const {body} = updateHeading;
 
 
+     const handleInput = name => e => {
+       setUpdateHeading({...updateHeading, [name]: e.target.value})
+      
+ }
+
+    const handleSubmit = e => {
+
+      e.preventDefault()
+      //  setUpdateHeading({...updateHeading, title: titulo})
+      //  setUpdateHeading({...updateHeading, row: row})
+      
+       updateRow(updateHeading);
+       console.log(updateHeading)
+       getRows()
+       getTables()
+       setUpdateHeading({
+        title: "",
+        row: "",
+        body: "",
+    }) 
+    }
+
+
+    const setName = (titles, rowName) =>{
+      setUpdateHeading({
+        title: titles,
+        row: rowName,
+        body: "",
+    }) 
+    console.log(updateHeading)
+    
+
+    }
+
+
+
+ 
 
 
 
     
 
 
-  // dragOverItem.current===index ? "hideTable" : "table"
 
 
     return (
@@ -90,10 +119,10 @@ const Tables = () => {
                   <table>
                     <tbody>
                     <tr>
-                       <th >{table.tableHeading1}</th>
-                       <th>{table.tableHeading2}</th>
-                       {table.tableHeading3 !== "" ? <th>{table.tableHeading3}</th> : null}
-                       {table.tableHeading4 !== "" ? <th>{table.tableHeading4}</th> : null}
+                       <th><button onClick={() => setName(table.tableName, "tableHeading1")}>{table.tableHeading1}</button></th>
+                       <th><button onClick={() => setName(table.tableName, "tableHeading2")}>{table.tableHeading2}</button></th>
+                       {table.tableHeading3 !== "" ? <th><button onClick={() => setName(table.tableName, "tableHeading3")}>{table.tableHeading3}</button></th> : null}
+                       {table.tableHeading4 !== "" ? <th><button onClick={() => setName(table.tableName, "tableHeading4")}>{table.tableHeading4}</button></th> : null}
                        <th><button type="button" className="deleteTable" onClick={() => deleteTable(table._id)}>Borrar</button></th>
                        
                      </tr>
@@ -120,7 +149,18 @@ const Tables = () => {
                  </div> 
               )
             })
-          } 
+          }
+          {
+                       updateHeading.title !== "" &&
+                       <div className='changeForm'>
+                          <form onSubmit={handleSubmit}>
+                          <input type="text" placeholder="set new row name*" value={body} name={"body"}  onChange={handleInput("body")}></input>
+                            <button>Submit</button>
+                          </form>
+                      </div>
+          }
+          
+          
           
         </div>
     );

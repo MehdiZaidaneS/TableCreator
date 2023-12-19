@@ -1,0 +1,18 @@
+table th:hover{
+  cursor: pointer;
+}
+
+
+.updateForm tr input{
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgb(49, 49, 49);
+    color: rgb(4, 143, 39);
+    text-align: center;
+    width:auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+

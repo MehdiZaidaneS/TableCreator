@@ -118,6 +118,43 @@ exports.deleteRow = async(req, res) =>{
     .catch((error)=>{
         res.status(500).json({message: "Couldnt Deleted"})
     })
+}
 
+exports.deleteTableRow = async(req, res) =>{
+
+    const db = TableModel.db.collection("tables");
+    const {title, row} = req.body;
+
+    try {
+        await db.updateOne({ tableName: title },
+            {
+              $unset: { [row]: ""},
+              $currentDate: { updatedAt: true }
+            })
+        res.status(200).json({message: "Row elimanted from database!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt delete the data!"})
+        console.log("error")
+    }
+}
+
+
+exports.editeRow = async(req, res)=>{
     
+    const db = TableModel.db.collection("tables");
+    const {title, row, body} = req.body;
+
+    try {
+        await db.updateOne({ tableName: title },
+            {
+              $set: {
+                [row] : body
+              },
+              $currentDate: { updatedAt: true }
+            })
+        res.status(200).json({message: "Row updated in database!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt update the data!"})
+        console.log("error")
+    }
 }

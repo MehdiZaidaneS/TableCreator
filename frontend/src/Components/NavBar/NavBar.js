@@ -16,6 +16,9 @@ const NavBar = () => {
                <Link to="/add-row" className="list">
                  Add row
                </Link>
+               <Link to="/update" className="list">
+                 Update
+               </Link>
              </ul>
           </nav>
         </div>

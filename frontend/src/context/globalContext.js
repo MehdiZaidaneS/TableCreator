@@ -48,6 +48,25 @@ const getTables = async() =>{
       console.log(response) 
    }
 
+   const updateRow = async(update) =>{
+      const response = await axios.post(`${PORT_URL}update-row`, update)
+         .catch((err)=>{
+            setError(err.response.data.message)
+         })
+      getTables()
+      console.log(response)
+   }
+
+   const deleteTableRow = async(tableRow) =>{
+     
+      const response = await axios.post(`${PORT_URL}update-row`, tableRow)
+         .catch((err)=>{
+            setError(err.response.data.message)
+         })
+      getTables()
+      console.log(response)
+   }
+
    const deleteTable = async(id) =>{
       const response = await axios.delete(`${PORT_URL}delete-table/${id}`)
          getTables()
@@ -85,7 +104,9 @@ const getTables = async() =>{
             addRow,
             deleteTable,
             deleteRow,
-            sortRow
+            sortRow,
+            updateRow,
+            deleteTableRow
         }}>
              {children}
         </GlobalContext.Provider>    
