@@ -120,10 +120,9 @@ const [updateHeading, setUpdateHeading] = useState({
                                   <table>
                                       <tbody>
                                       <tr>
-                                        
                                         {table.tableHeading1 !== null && table.tableHeading1 !== "" ? 
                                         (row === "tableHeading1" ?
-                                        <input type='text'  value={body} name={"body"}  onChange={handleInput("body")}></input>
+                                        <input type='text' value={body} name={"body"}  onChange={handleInput("body")}></input>
                                         :<th onClick={() => setName(table.tableName, "tableHeading1", table.tableHeading1)}>{table.tableHeading1}</th>) 
                                         : null 
                                         } 
@@ -147,15 +146,13 @@ const [updateHeading, setUpdateHeading] = useState({
                                         <input type='text'  value={body} name={"body"}  onChange={handleInput("body")}></input>
                                         :<th onClick={() => setName(table.tableName, "tableHeading4", table.tableHeading4)}>{table.tableHeading4}</th>) 
                                         : null } 
-                                        
-
                                        </tr>
                                        </tbody>
                                    </table>
                                 </form>
                                 {
                                     row &&
-                                    <p onClick={()=> deleteTable(table.tableName, row)}>Delete Table Heading!</p>
+                                    <p className="remove" style={{color: "orange", paddingTop: "15px", cursor:"pointer"}} onClick={()=> deleteTable(table.tableName, row)}>Remove!</p>
                                 }
                                 
                             </div>

@@ -80,17 +80,7 @@ const Tables = () => {
     }
 
 
-    const setName = (titles, rowName) =>{
-      setUpdateHeading({
-        title: titles,
-        row: rowName,
-        body: "",
-    }) 
-    console.log(updateHeading)
     
-
-    }
-
 
 
  
@@ -119,10 +109,10 @@ const Tables = () => {
                   <table>
                     <tbody>
                     <tr>
-                       <th><button onClick={() => setName(table.tableName, "tableHeading1")}>{table.tableHeading1}</button></th>
-                       <th><button onClick={() => setName(table.tableName, "tableHeading2")}>{table.tableHeading2}</button></th>
-                       {table.tableHeading3 !== "" ? <th><button onClick={() => setName(table.tableName, "tableHeading3")}>{table.tableHeading3}</button></th> : null}
-                       {table.tableHeading4 !== "" ? <th><button onClick={() => setName(table.tableName, "tableHeading4")}>{table.tableHeading4}</button></th> : null}
+                       {table.tableHeading1 !== "" && table.tableHeading1 !== null ? <th>{table.tableHeading1}</th> : null}
+                       {table.tableHeading2 !== "" && table.tableHeading2 !== null ? <th>{table.tableHeading2}</th> : null}
+                       {table.tableHeading3 !== "" && table.tableHeading3 !== null? <th>{table.tableHeading3}</th> : null}
+                       {table.tableHeading4 !== "" && table.tableHeading4 !== null? <th>{table.tableHeading4}</th> : null}
                        <th><button type="button" className="deleteTable" onClick={() => deleteTable(table._id)}>Borrar</button></th>
                        
                      </tr>
@@ -131,10 +121,10 @@ const Tables = () => {
                           if(row.rowName === table.tableName){
                             return(
                               <tr key={row._id}>
-                                <td>{row.tableData1}</td>
-                                <td>{row.tableData2}</td>
-                                {row.tableData3 !== "" ? <td>{row.tableData3}</td> : null}
-                                {row.tableData4 !== "" ? <td>{row.tableData4}</td> : null}
+                                 {table.tableHeading1 !== "" && table.tableHeading1 !== null ? <td>{row.tableData1}</td> : null}
+                                {table.tableHeading2 !== "" && table.tableHeading2 !== null ? <td>{row.tableData2}</td> : null}
+                                {table.tableHeading3 !== "" && table.tableHeading3 !== null ? <td>{row.tableData3}</td> : null}
+                                {table.tableHeading4 !== "" && table.tableHeading4 !== null ? <td>{row.tableData4}</td> : null}
                                 <td><button onClick={()=> deleteRow(row._id)} className='deleteRow'>Delete</button></td>
                               </tr>  
                               )

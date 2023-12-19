@@ -86,13 +86,13 @@ const {rowName, tableData1 , tableData2, tableData3, tableData4 } = inputStateRo
                         return(
                             <div key={table._id} className='inputs'>
                                 <div>
-                                <input type="text" placeholder={table.tableHeading1 ? table.tableHeading1 : "tableData1"} value={tableData1} name={"tableData1"}  onChange={handleInputRow("tableData1")}></input>
-                                <input type="text" placeholder={table.tableHeading2 ? table.tableHeading2 : "tableData2"} value={tableData2} name={"tableData2"} onChange={handleInputRow("tableData2")}></input>
+                                {table.tableHeading1 !== "" && table.tableHeading1 !== null ? <input required type="text" placeholder={table.tableHeading1 ? table.tableHeading1 : "tableData1"} value={tableData1} name={"tableData1"}onChange={handleInputRow("tableData1")}></input> : null}
+                                {table.tableHeading2 !== "" && table.tableHeading2 !== null? <input required type="text" placeholder={table.tableHeading2 ? table.tableHeading2 : "tableData2"} value={tableData2} name={"tableData2"}onChange={handleInputRow("tableData2")}></input> : null} 
 
                                 </div>
                                 <div>
-                                {table.tableHeading3 !== "" ? <input required type="text" placeholder={table.tableHeading3 ? table.tableHeading3 : "tableData3"} value={tableData3} name={"tableData3"}onChange={handleInputRow("tableData3")}></input> : null}
-                                {table.tableHeading4 !== "" ? <input required type="text" placeholder={table.tableHeading4 ? table.tableHeading4 : "tableData4"} value={tableData4} name={"tableData4"}onChange={handleInputRow("tableData4")}></input> : null} 
+                                {table.tableHeading3 !== "" && table.tableHeading3 !== null ? <input required type="text" placeholder={table.tableHeading3 ? table.tableHeading3 : "tableData3"} value={tableData3} name={"tableData3"}onChange={handleInputRow("tableData3")}></input> : null}
+                                {table.tableHeading4 !== "" && table.tableHeading4 !== null ? <input required type="text" placeholder={table.tableHeading4 ? table.tableHeading4 : "tableData4"} value={tableData4} name={"tableData4"}onChange={handleInputRow("tableData4")}></input> : null} 
                                 </div>
                             </div>
                         )
